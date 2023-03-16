@@ -6,7 +6,7 @@
 <body class="grey lighten-2">
     <div class="container">
         <h2>Modificar usuario</h2>
-        <form method="POST" action="/save" class="col s12" id="editForm">
+        <form method="POST" class="col s12" id="editForm">
             <div class="input-field">
                 <input type="text" name="cod" id="cod" value="<?= $_SESSION["edit"]["cod"] ?>" required>
                 <label for="cod">Código</label>

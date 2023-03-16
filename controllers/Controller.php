@@ -19,14 +19,6 @@ class Controller
             case "/edit":
                 $this->edit();
                 break;
-            case "/save":
-                $this->save();
-                break;
-            case "/delete":
-                $this->delete();
-            case "/add":
-                $this->add();
-                break;
             case "/new":
                 $this->new();
                 break;
@@ -37,58 +29,43 @@ class Controller
     }
     public function index()
     {
+        if (!empty($_GET["delete"])) {
+            $this->connection->deleteUser($_GET["delete"]);
+            header("Location: /");
+            die();
+        }
         $_SESSION["users"] = $this->connection->readUsers();
         require "views/index.php";
     }
     public function edit()
     {
-        $_SESSION["edit"] = $this->connection->readUser($_GET["cod"]);
-        if (isset($_SESSION["edit"])) {
-            require "views/edit.php";
-        } else {
-            $this->error404();
-        }
-    }
-    public function save()
-    {
         $cod = $_POST["cod"];
         $name = $_POST["nom"];
         $email = $_POST["correo"];
         $phone = $_POST["tel"];
-        if (empty($cod) || empty($name) || empty($email) || empty($phone)) {
-            $this->error404();
-        } else {
+        if (!empty($cod) && !empty($name) && !empty($email) && !empty($phone)) {
             $this->connection->updateUser($cod, $name, $email, $phone);
             header("Location: /");
             die();
+        } else if (!empty($_GET["cod"])) {
+            $_SESSION["edit"] = $this->connection->readUser($_GET["cod"]);
+            if (!isset($_SESSION["edit"])) {
+                $this->error404();
+            }
         }
-    }
-    public function delete()
-    {
-        $cod = $_GET["cod"];
-        if (empty($cod)) {
-            $this->error404();
-        } else {
-            $this->connection->deleteUser($cod);
-            header("Location: /");
-            die();
-        }
+        require "views/edit.php";
     }
     public function new()
-    {
-        require "views/new.php";
-    }
-    public function add()
     {
         $name = $_POST["nom"];
         $email = $_POST["correo"];
         $phone = $_POST["tel"];
-        if (empty($name) || empty($email) || empty($phone)) {
-            $this->error404();
-        } else {
+        if (!empty($name) && !empty($email) && !empty($phone)) {
             $this->connection->createUser($name, $email, $phone);
             header("Location: /");
             die();
+        } else {
+            require "views/new.php";
         }
     }
     public function error404()

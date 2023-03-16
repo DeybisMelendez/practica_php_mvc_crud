@@ -5,7 +5,7 @@
 <body class="grey lighten-2">
     <div class="container">
         <h2>Agregar usuario</h2>
-        <form action="/add" class="col s12" id="editForm" method="POST">
+        <form class="col s12" id="editForm" method="POST">
             <div class="input-field">
                 <input type="text" name="nom" id="nom" required>
                 <label for="nom">Nombre</label>
