@@ -5,7 +5,7 @@
 <body class="grey lighten-2">
 
     <div class="fixed-action-btn">
-        <a href="/new" class="btn-floating btn-large red">
+        <a href="#newModal" class="btn-floating btn-large red modal-trigger">
             <i class="large material-icons">person_add</i>
         </a>
     </div>
@@ -34,10 +34,10 @@
                     <td><?= $values["correo"] ?></td>
                     <td><?= $values["tel"] ?></td>
                     <td class="center">
-                        <a href="/edit?cod=<?= $values["cod"] ?>" class="waves-effect waves-light btn">
+                        <a href="#editModal" class="waves-effect waves-light modal-trigger btn" onclick="selectEdit(<?= $values['cod'] ?>)">
                             <i class="material-icons">mode_edit</i>
                         </a>
-                        <a class="waves-effect waves-light modal-trigger btn red" href="#modal" onclick="select(<?= $values['cod'] ?>)">
+                        <a class="waves-effect waves-light modal-trigger btn red" href="#deleteUser" onclick="select(<?= $values['cod'] ?>)">
                             <i class="material-icons">delete</i>
                         </a>
                     </td>
@@ -45,8 +45,8 @@
             <?php endforeach ?>
         </table>
     </div>
-    <!-- Modal Structure -->
-    <div id="modal" class="modal grey lighten-2">
+    <!-- Detele Modal Structure -->
+    <div id="deleteUser" class="modal grey lighten-2">
         <div class="modal-content center">
             <p>¿Deseas eliminar a este usuario?</p>
         </div>
@@ -55,6 +55,9 @@
             <a class="waves-effect waves-light btn green" id="delete">Si</a>
         </div>
     </div>
+    <?php require_once("views/template/edit.php") ?>
+    <?php require_once("views/template/new.php") ?>
+
     <script src="views/scripts/index.js"></script>
     <?php require_once("template/js.html") ?>
 </body>
