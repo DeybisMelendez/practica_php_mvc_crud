@@ -1,19 +1,19 @@
 <!-- Edit Modal Structure -->
 <div id="newModal" class="modal grey lighten-2">
+    <h4>Agregar usuario</h4>
     <div class="modal-content">
-        <h4>Agregar usuario</h4>
-        <form id="newForm" method="POST">
+        <form id="newForm" method="POST" action="/">
             <div class="input-field">
-                <input type="text" name="newnom" id="nom" required>
-                <label for="nom">Nombre</label>
+                <input type="text" name="newnom" id="newnom" required>
+                <label for="newnom">Nombre</label>
             </div>
             <div class="input-field">
-                <input type="email" name="newcorreo" id="correo" required>
-                <label for="correo">Correo</label>
+                <input type="email" name="newcorreo" id="newcorreo" required>
+                <label for="newcorreo">Correo</label>
             </div>
             <div class="input-field">
-                <input type="text" name="newtel" id="tel" required>
-                <label for="tel">Número</label>
+                <input type="text" name="newtel" id="newtel" required>
+                <label for="newtel">Número</label>
             </div>
         </form>
     </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="modal-footer grey lighten-2">
         <a href="#!" class="modal-close waves-effect waves-light red btn">No</a>
-        <a class="waves-effect waves-light btn green" id="add">Si</a>
+        <a class="waves-effect waves-light btn green" id="new">Si</a>
     </div>
 </div>
 </div>

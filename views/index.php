@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php require_once("views/template/head.html") ?>
+<?php include("views/template/head.html") ?>
 
 <body class="grey lighten-2">
 
@@ -37,7 +37,7 @@
                         <a href="#editModal" class="waves-effect waves-light modal-trigger btn" onclick="selectEdit(<?= $values['cod'] ?>)">
                             <i class="material-icons">mode_edit</i>
                         </a>
-                        <a class="waves-effect waves-light modal-trigger btn red" href="#deleteUser" onclick="selectDelete(<?= $values['cod'] ?>)">
+                        <a class="waves-effect waves-light modal-trigger btn red" href="#deleteModal" onclick="selectDelete(<?= $values['cod'] ?>)">
                             <i class="material-icons">delete</i>
                         </a>
                     </td>
@@ -46,7 +46,7 @@
         </table>
     </div>
     <!-- Detele Modal Structure -->
-    <div id="deleteUser" class="modal grey lighten-2">
+    <div id="deleteModal" class="modal grey lighten-2">
         <div class="modal-content center">
             <h4>Eliminar usuario</h4>
             <form>
@@ -75,11 +75,11 @@
             <a class="waves-effect waves-light btn green" id="delete">Si</a>
         </div>
     </div>
-    <?php require_once("views/template/edit.php") ?>
-    <?php require_once("views/template/new.php") ?>
+    <?php include("views/template/edit.html") ?>
+    <?php include("views/template/new.html") ?>
 
     <script src="views/scripts/index.js"></script>
-    <?php require_once("template/js.html") ?>
+    <?php include("template/js.html") ?>
 </body>
 
 </html>

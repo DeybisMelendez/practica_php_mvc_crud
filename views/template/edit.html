@@ -1,23 +1,24 @@
 <!-- Edit Modal Structure -->
 <div id="editModal" class="modal grey lighten-2">
     <div class="modal-content">
-        <form method="POST" id="editForm">
+        <form method="POST" id="editForm" action="/">
             <h4>Modificar usuario</h4>
             <div class="row">
                 <div class="input-field col s12 m6">
-                    <input type="text" placeholder="Placeholder" name="editcod" id="editCod" required disabled>
+                    <input type="text" placeholder="Placeholder" name="editcod" id="editcod" required readonly>
                     <label for="editcod">Código</label>
                 </div>
                 <div class="input-field col s12 m6">
-                    <input type="text" placeholder="Placeholder" name="editnom" id="editNom" required>
+                    <input type="text" placeholder="Placeholder" name="editnom" id="editnom" required>
                     <label for="editnom">Nombre</label>
                 </div>
                 <div class="input-field col s12 m6">
-                    <input type="email" placeholder="Placeholder" class="validate" name="editcorreo" id="editCorreo" required>
+                    <input type="email" placeholder="Placeholder" class="validate" name="editcorreo" id="editcorreo"
+                        required>
                     <label for="editcorreo">Correo</label>
                 </div>
                 <div class="input-field col s12 m6">
-                    <input type="text" placeholder="Placeholder" class="validate" name="edittel" id="editTel" required>
+                    <input type="text" placeholder="Placeholder" name="edittel" id="edittel" required>
                     <label for="edittel">Teléfono</label>
                 </div>
             </div>

@@ -16,9 +16,6 @@ class Controller
             case "/":
                 $this->index();
                 break;
-            case "/new":
-                $this->new();
-                break;
             case "/api":
                 $this->apiUser();
                 break;
@@ -43,29 +40,29 @@ class Controller
     }
     private function edit()
     {
-        $cod = $_POST["editcod"];
-        $name = $_POST["editnom"];
-        $email = $_POST["editcorreo"];
-        $phone = $_POST["edittel"];
+        $cod = $_REQUEST["editcod"];
+        $name = $_REQUEST["editnom"];
+        $email = $_REQUEST["editcorreo"];
+        $phone = $_REQUEST["edittel"];
         if (!empty($cod) && !empty($name) && !empty($email) && !empty($phone)) {
             $this->connection->updateUser($cod, $name, $email, $phone);
-            header("Location: /");
-            die();
+            //header("Location: /");
+            //die();
         }
     }
     private function delete()
     {
-        if (!empty($_GET["delete"])) {
-            $this->connection->deleteUser($_GET["delete"]);
+        if (!empty($_REQUEST["delete"])) {
+            $this->connection->deleteUser($_REQUEST["delete"]);
             header("Location: /");
             die();
         }
     }
     private function new()
     {
-        $name = $_POST["newnom"];
-        $email = $_POST["newcorreo"];
-        $phone = $_POST["newtel"];
+        $name = $_REQUEST["newnom"];
+        $email = $_REQUEST["newcorreo"];
+        $phone = $_REQUEST["newtel"];
         if (!empty($name) && !empty($email) && !empty($phone)) {
             $this->connection->createUser($name, $email, $phone);
             header("Location: /");
