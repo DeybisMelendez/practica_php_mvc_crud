@@ -37,7 +37,7 @@
                         <a href="#editModal" class="waves-effect waves-light modal-trigger btn" onclick="selectEdit(<?= $values['cod'] ?>)">
                             <i class="material-icons">mode_edit</i>
                         </a>
-                        <a class="waves-effect waves-light modal-trigger btn red" href="#deleteUser" onclick="select(<?= $values['cod'] ?>)">
+                        <a class="waves-effect waves-light modal-trigger btn red" href="#deleteUser" onclick="selectDelete(<?= $values['cod'] ?>)">
                             <i class="material-icons">delete</i>
                         </a>
                     </td>
@@ -48,7 +48,27 @@
     <!-- Detele Modal Structure -->
     <div id="deleteUser" class="modal grey lighten-2">
         <div class="modal-content center">
-            <p>¿Deseas eliminar a este usuario?</p>
+            <h4>Eliminar usuario</h4>
+            <form>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input type="text" placeholder="Placeholder" name="cod" id="delcod" disabled>
+                        <label for="cod">Código</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="text" placeholder="Placeholder" name="nom" id="delnom" disabled>
+                        <label for="nom">Nombre</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="email" placeholder="Placeholder" name="correo" id="delcorreo" disabled>
+                        <label for="correo">Correo</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="text" placeholder="Placeholder" name="tel" id="deltel" disabled>
+                        <label for="tel">Teléfono</label>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer grey lighten-2">
             <a href="#!" class="modal-close waves-effect waves-light red btn">No</a>
